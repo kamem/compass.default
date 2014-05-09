@@ -4,14 +4,15 @@
 // img
 //----------------------------------------------------------------------
 //	background-fit
-//	画像のサイズを取得しbackground-size,width,heightに入れる
+//	画像のサイズを取得しbackground-size,width,heightをセットする
 //	$widthFixedがfalseの場合はwidth,heightを出力しない
 //	$imgには配列で複数画像を指定することが可能（その場合は$valueにpositionとrepeat必須）
 //	※グラデーションも指定できます。
 //
 //	$img: config.rb images_dirで指定したパスからの画像（複数画像を指定できます。）
-//	$widthFixed: 画像タグのサイズいっぱいに指定してテキストを消したいとき true
+//	$widthFixed: 画像をタグのサイズいっぱいに指定してテキストを消したいとき true
 //	$value: 一つ目の画像をどういう配置にするか（複数指定してある場合は ("0 0 no-repeat","left top repeat")）
+// $base64: $imgで指定した画像をbase64にするかしないか
 //	$retina: true or false
 $imgWidth: ();
 $imgHeight: ();
@@ -98,7 +99,7 @@ $imgHeight: ();
 @function half-image-width($img) {
 	$imgWidth: ();
 	@each $i in $img {
-		$width: image-width($i) / 2;
+		$width: round(image-width($i) / 2);
 		
 		$imgWidth: if(length($img) == 1,$width,append($imgWidth, $width));
 	}
@@ -113,7 +114,7 @@ $imgHeight: ();
 @function half-image-height($img) {
 	$imgHeight: ();
 	@each $i in $img {
-		$height: image-height($i) / 2;
+		$height: round(image-height($i) / 2);
 		
 		$imgHeight:  if(length($img) == 1,$height,append($imgHeight, $height));
 	}
@@ -245,7 +246,7 @@ $imgHeight: ();
 // $position: 三角形をボックスのどの位置にセットするか（真ん中の場合50%）
 // $selecter: after or before どちらを使うか
 $size: '';
-@mixin triangle-set($num: 10px,$color: black,$dir: top,$position: 50%,$selecter: after) {
+@mixin triangle-set($num: 10px,$color: black,$dir: right,$position: 50%,$selecter: after) {
 	$size: (nth($num,1) / 2);
 	$h: '';
 	@if length($num) == 1 {
@@ -363,7 +364,7 @@ $size: '';
 }
 
 //----------------------------------------------------------------------
-// font-size
+// size
 //----------------------------------------------------------------------
 // es
 // 基準となるサイズに対する値をさまざまな単位にエンコード（encode size）
@@ -424,8 +425,8 @@ $size: '';
 //	黄金比の計算
 //	$num: 基準にしたい値
 // $big: $numに対しての大きい方の黄金比を計算したい場合はtrue
-//	@return {Array}
-@function golden-ratio($num,$big: false) {
+//	@return {Number}
+@function golden-ratio($num: 0,$big: false) {
 	@return if($big,round($num / 1.618),round($num * 1.618));
 }
 
@@ -433,8 +434,8 @@ $size: '';
 //	白銀比の計算
 //	$num: 基準にしたい値
 // $big: $numに対しての大きい方の白銀比を計算したい場合はtrue
-//	@return {Array}
-@function silver-ratio($num,$big: false) {
+//	@return {Number}
+@function silver-ratio($num: 0,$big: false) {
 	@return if($big,round($num / 1.414),round($num * 1.414));
 }
 
@@ -443,7 +444,7 @@ $size: '';
 //----------------------------------------------------------------------
 //	clearfix
 // $selecters: 配列でクリアーフォックスさせたいセレクターを渡すとクリアーフィックにしてくれる。
-@mixin clearfix($selecters) {
+@mixin clearfix($selecters: '.clearfix') {
 	%clearfix {
 		@if $legacy-support-for-ie7 {
 		min-height: 1px;

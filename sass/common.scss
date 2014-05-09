@@ -7,29 +7,21 @@ main,
 #footer {
 	margin: 0 auto;
 	text-align: left;
-	width: $base-width+ px;
+	width: $base-width + px;
 	position: relative;
 	background: #f1f1f1;
 	overflow: hidden;
 	@include box-shadow(2px 2px 3px rgba(0,0,0,0.15));
-	
-	h1 {
-		text-align: center;
-		padding: 3em;
-	}
-
-	@media screen and (max-width: 479px) {
-		width: 320px;
-	}
-
-	@media screen and (min-width: 480px) {
-	}
 }
 
 /*----------------------------------------
 	header
 ----------------------------------------*/
 #header {
+	h1 {
+		@include display-box-center();
+		padding: 3em;
+	}
 }
 
 /*----------------------------------------
@@ -76,6 +68,8 @@ main {
 /*----------------------------------------
 	Class
 ----------------------------------------*/
-@include clearfix((
-	'.clearfix'
-));
+@include clearfix();
+
+.test {
+	@extend %clearfix;
+}
