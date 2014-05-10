@@ -42,6 +42,7 @@
 animation関係を使えるように（_animation.scss）
 ---
 下記のanimation関係のCSSを@includeで使えるようにしベンダープレフィックスを付けるようにしてくれる。
+
 * animation-name
 * animation-duration
 * animation-timing-function
@@ -67,9 +68,66 @@ keyframesを@includeで使えるようにしベンダープレフィックスを
 小数の桁数と丸め方を制御する（_extension_decimal.scss）
 ---
 下記サイトのscssを使わせて頂いています。
+
 * [小数の桁数と丸め方を制御する Sass 関数][mit]
 
 [MIT]: http://terkel.jp/archives/2012/12/decimal-digits-and-rounding-sass-function/
+
+
+sprite画像を生成する（_extension_sprite.scss）
+---
+スプライト画像を生成し、その画像名のクラスを付けるだけで画像を表示できるようにしてくれる。
+これを使うことによりscss編集時に毎回スプライトチェックする問題を回避することができます。
+sprite.scssだけ使うことができます。
+
+### 使い方
+#### 初期設定
+	@include sprite-make(
+		'',
+		5px,
+		true ,
+		$isRetina // 予め_setting.scssで設定されてることを考慮
+	);
+
+#### 説明
+	@include sprite-make(
+		スプライト化したい画像, //sprite-map()の第一引き数にいれるファイル名。（配列で複数指定することができます。）
+		スプライト化した時の画像と画像の間のサイズ, //sprite-map()の$spacingの値
+		true or false, // 吐き出すCSSにクラス名2つをつけるか。（false:「.画像ファイル名」、true:「.スプライト名.画像ファイル名」となります。）
+		true or false, // Retina対応（画像サイズを半分に）するかしないか
+	);
+
+#### 例
+##### SCSS
+	@include sprite_make((
+		'num/*.png'
+	))
+
+##### css
+	.num.img1, .num.img2, .num.img3 {
+		display: block;
+		background-image: url('/html/img/num-sce8bc88143.png');
+		background-repeat: no-repeat;
+		background-size: 50px 270px;
+	}
+	
+	.num.img1 {
+		background-position: 0 -220px;
+		width: 50px;
+		height: 50px;
+	}
+	
+	.num.img2 {
+		background-position: 0 -110px;
+		width: 50px;
+		height: 50px;
+	}
+	
+	.num.img3 {
+		background-position: 0 0;
+		width: 50px;
+		height: 50px;
+	}
 
 
 便利なmixin（_extension.scss）

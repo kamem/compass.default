@@ -4,7 +4,7 @@
 // sprite
 // ----------------------------------------------------------------------
 
-@mixin position($map, $sprite-names,$retina : $isRetina,$doubleClass : true) {
+@mixin position($map, $sprite-names,$doubleClass : true,$retina : $isRetina) {
 	$retinaSuport: if($retina, 2, 1);
 	$map : nth($map,1);
 	$spriteName: sprite-map-name($map);
@@ -24,7 +24,7 @@
 	}
 }
 
-@mixin image($map, $sprite-names,$retina : $isRetina,$doubleClass : true) {
+@mixin image($map, $sprite-names,$doubleClass : true,$retina : $isRetina) {
 	$names: ();
 	$retinaSuport: if($retina, 2, 1);
 	
@@ -56,16 +56,16 @@
 	}
 }
 
-@mixin images($n, $space : 5px ,$retina : $isRetina,$doubleClass: true) {
+@mixin images($n, $space : 5px,$doubleClass: true ,$retina : $isRetina) {
 	$map: sprite-map($n, $spacing: $space);
 	$list: sprite-names($map);
 
-	@include image($map, $list, $retina, $doubleClass);
-	@include position($map, $list, $retina, $doubleClass);
+	@include image($map, $list, $doubleClass, $retina);
+	@include position($map, $list, $doubleClass, $retina);
 }
 
-@mixin sprite-make($dirList, $space : 5px ,$retina: $isRetina, $doubleClass: true) {
+@mixin sprite-make($dirList, $space : 5px, $doubleClass: true ,$retina: $isRetina) {
 	@each $dir in $dirList {
-		@include images($dir, $space, $retina, $doubleClass);
+		@include images($dir, $space, $doubleClass, $retina);
 	}
 }
