@@ -1,6 +1,6 @@
-楽しくコーディング！Sass,Compassラのデフォルトmininxとカスタム関数
+楽しくコーディング！Sass,Compassのデフォルトmixinとカスタム関数
 
-フォルダ構成
+Sass,Compass関連のフォルダ構成
 ---
 	├config.rb
 	├	rb
@@ -54,62 +54,64 @@
 	"_keyframes",
 	"extension_decimal",
 	"extension";
-	
+
 設定用scss（_setting.scss,_setting_site.scss）
 ---
 
 ### _setting.scss
 compassで使用する変数の設定
 
+	//config.rb指定したimages_dirの値
 	$images_dir: "html/img/";
-	
+
 	//HTML5の場合は「true」
 	$html5: true;
 	//Retina対応
 	$isRetina: false;
 	//base64対応
 	$isBase64: false;
-	
+
 	//compass ブラウザサポート
 	$legacy-support-for-ie6: true;
 	$legacy-support-for-ie7: true;
-	
+
 	$experimental-support-for-webkit: true;
 	$experimental-support-for-mozilla: true;
 	$experimental-support-for-opera: true;
 	$experimental-support-for-microsoft: true;
 	$experimental-support-for-khtml: false;
-	
+
 	//ie9用 svg
 	$experimental-support-for-svg: true;
 
 ### _setting_site.scss
 サイトを作る際に全体で使う変数の設定。
+
 例
 
 	//font
-	$font-sizeDefault: 10;
-	$font-size: 16;
-	$font-unit: rem;
+	$font-sizeDefault: 10; // 基準となるフォントサイズ（htmlに指定する値）
+	$font-size: 16; // よく使うfont-size
+	$font-unit: rem; // 使う単位
 	$font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
-	
+
 	//ページの横幅
 	$base-width: 736;
 	$base-width-big: 798;
-	
+
 	// 標準テキストカラー
 	$textColor : #500;
-	
+
 	// 標準リンクカラー
 	$linkColor : #39c;
 	$linkColor_hover : #f39;
 	$linkColor_visited : rgba(#39c,0.7);
 	$linkColor_active : #39c;
-	
+
 	//mediaQueryの基準となる幅
 	$mediaQuery-large: 798;
-	$mediaQuery-middle: 756;
-	$mediaQuery-small: 650;
+	$mediaQuery-middle: 480;
+	$mediaQuery-small: 320;
 
 
 animation関係を使えるように（_animation.scss）
@@ -127,11 +129,11 @@ animation関係を使えるように（_animation.scss）
 keyframesを使えるように（_keyframes.scss）
 ---
 keyframesを@includeで使えるようにしベンダープレフィックスを付けるようにしてくれる。
-		
+
 	@include keyframes(anime1) {
 	  0% {
 	    @include transform(rotate(720deg));
-	  }    
+	  }
 	  100% {
 	  	width: 500px;
 	    @include transform(rotate(0deg));
@@ -176,19 +178,19 @@ sprite.scssだけ使うことができます。
 		background-repeat: no-repeat;
 		background-size: 50px 270px;
 	}
-	
+
 	.num.img1 {
 		background-position: 0 -220px;
 		width: 50px;
 		height: 50px;
 	}
-	
+
 	.num.img2 {
 		background-position: 0 -110px;
 		width: 50px;
 		height: 50px;
 	}
-	
+
 	.num.img3 {
 		background-position: 0 0;
 		width: 50px;
@@ -238,10 +240,10 @@ CSSで背景に画像を入れる時に毎回サイズを入れる作業を省�
 		('center 5px no-repeat','0 0 no-repeat')
 	);
 
-#### CSS 
+#### CSS
 	background: url('/html/img/text.png?1396155926') center 5px no-repeat, linear-gradient(rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.3)) 0 0 no-repeat;
 	background-size: 327px 29px, auto auto;
-	
+
 
 ### half-image-width
 画像の半分の横幅の値を返す（複数画像を配列で指定可能）
@@ -251,7 +253,7 @@ CSSで背景に画像を入れる時に毎回サイズを入れる作業を省�
 #### SCSS
 	width: half-image-width('test.png');
 
-#### CSS 
+#### CSS
 	width: 100px;
 
 ### half-image-height
@@ -262,7 +264,7 @@ CSSで背景に画像を入れる時に毎回サイズを入れる作業を省�
 #### SCSS
 	height: half-image-width('test.png');
 
-#### CSS 
+#### CSS
 	height: 100px;
 
 ### sprite-info
