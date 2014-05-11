@@ -371,6 +371,12 @@ webkitに対応したサイトを作る際に役立ちます。
 					（初期値は予め_setting.scssで設定されてることを考慮）
 	);
 
+詳しい仕様の説明は下記より
+
+* [1つの画像で4つの角を再現するCSS][background-4corners]
+
+[background-4corners]: http://develo.org/2014/05/11/2100.html
+
 ### es
 基準となるサイズに対する値を、さまざまな単位にエンコード（encode size）
 
