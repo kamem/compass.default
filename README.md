@@ -54,6 +54,62 @@
 	"_keyframes",
 	"extension_decimal",
 	"extension";
+	
+設定用scss（_setting.scss,_setting_site.scss）
+---
+
+### _setting.scss
+compassで使用する変数の設定
+
+	$images_dir: "html/img/";
+	
+	//HTML5の場合は「true」
+	$html5: true;
+	//Retina対応
+	$isRetina: false;
+	//base64対応
+	$isBase64: false;
+	
+	//compass ブラウザサポート
+	$legacy-support-for-ie6: true;
+	$legacy-support-for-ie7: true;
+	
+	$experimental-support-for-webkit: true;
+	$experimental-support-for-mozilla: true;
+	$experimental-support-for-opera: true;
+	$experimental-support-for-microsoft: true;
+	$experimental-support-for-khtml: false;
+	
+	//ie9用 svg
+	$experimental-support-for-svg: true;
+
+### _setting_site.scss
+サイトを作る際に全体で使う変数の設定。
+例
+
+	//font
+	$font-sizeDefault: 10;
+	$font-size: 16;
+	$font-unit: rem;
+	$font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+	
+	//ページの横幅
+	$base-width: 736;
+	$base-width-big: 798;
+	
+	// 標準テキストカラー
+	$textColor : #500;
+	
+	// 標準リンクカラー
+	$linkColor : #39c;
+	$linkColor_hover : #f39;
+	$linkColor_visited : rgba(#39c,0.7);
+	$linkColor_active : #39c;
+	
+	//mediaQueryの基準となる幅
+	$mediaQuery-large: 798;
+	$mediaQuery-middle: 756;
+	$mediaQuery-small: 650;
 
 
 animation関係を使えるように（_animation.scss）
