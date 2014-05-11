@@ -376,7 +376,7 @@ webkitに対応したサイトを作る際に役立ちます。
 	margin: es(
 		'', // 変換したいサイズ
 		$font-unit, // 変換したい単位（%,em,rem,px）（初期値は予め_setting.scssで設定されてることを考慮）
-		$fontSizeDefault // 変換の基準となる値（初期値は予め_setting.scssで設定されてることを考慮）
+		$font-sizeDefault // 変換の基準となる値（初期値は予め_setting.scssで設定されてることを考慮）
 	);
 
 #### SCSS
@@ -385,7 +385,7 @@ webkitに対応したサイトを作る際に役立ちます。
 	font-size: es(12,'%',16);
 	//または
 	$font-unit: '%';
-	$fontSizeDefault: 16;
+	$font-sizeDefault: 16;
 	font-size: es(12);
 #### CSS
 	font-size: 75%;
@@ -401,7 +401,7 @@ webkitに対応したサイトを作る際に役立ちます。
 		'', // 変換したいサイズ
 		'', //!importantを指定したい場合（必要ない場合は空）
 		$font-unit, // 変換したい単位（%,em,rem,px）（初期値は予め_setting.scssで設定されてることを考慮）
-		$fontSizeDefault // 変換の基準となる値（初期値は予め_setting.scssで設定されてることを考慮）
+		$font-sizeDefault // 変換の基準となる値（初期値は予め_setting.scssで設定されてることを考慮）
 	);
 
 
@@ -412,7 +412,7 @@ webkitに対応したサイトを作る際に役立ちます。
 	@include fz(12,'',rem,10);
 	//または
 	$font-unit: rem;
-	$fontSizeDefault: 10;
+	$font-sizeDefault: 10;
 	@include fz(12);
 #### CSS
 	font-size: 12px;
