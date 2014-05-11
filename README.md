@@ -212,24 +212,14 @@ CSSで背景に画像を入れる時に毎回サイズを入れる作業を省�
 4. 複数画像を指定した場合は第3引き数に複数指定する。（例: <code>('0 0 no-repeat','left top repeat','0 0 no-repeat')</code>）
 5. 関数実行後$imgWidth,$imgHeightの中に画像のサイズが入ります。<br>複数の場合配列に入るのでnth($imgWidth,1),nth($imgHeight,2)のように取ってくることができます。
 
-#### 説明
+#### 初期設定・説明
 	@include background-fit(
-		画像のパス, //images_dirで指定したパスからの画像ファイル名（配列で複数指定可能,グラデーション指定も可能）
-		true or false, //（画像をサイズいっぱいに表示してテキストを消す or 画像とbackgrouns-sizeのみの指定をするか）
-		画像に対してのrepeat position, (複数の場合の例: '0 0 no-repeat','left top repeat')
-		'!important', //!importantを指定したい場合（必要ない場合は空）
-		true or false, // base64にするかしないか
-		true or false, // Retina対応（画像サイズを半分に）するかしないか
-	);
-
-#### 初期設定
-	@include background-fit(
-		'',
-		true,
-		'0 0 no-repeat',
-		'',
-		$isBase64, // 予め_setting.scssで設定されてることを考慮
-		$isRetina // 上に同じ
+		'', // 画像のパス: images_dirで指定したパスからの画像ファイル名（配列で複数指定可能,グラデーション指定も可能）
+		true, // true or false: 画像をサイズいっぱいに表示してテキストを消す or 画像とbackgrouns-sizeのみの指定をするか）
+		'0 0 no-repeat', // 画像に対してのrepeat position: (複数の場合の例: ('0 0 no-repeat','left top repeat'))
+		'', //'!important': !importantを指定したい場合（必要ない場合は空）
+		$isBase64, // true or false: base64にするかしないか (予め_setting.scssで設定されてることを考慮）
+		$isRetina // true or false: Retina対応（画像サイズを半分に）するかしないか（予め_setting.scssで設定されてることを考慮）
 	);
 
 
