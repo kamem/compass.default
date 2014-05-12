@@ -169,7 +169,7 @@ sprite.scssだけ使うことができます。
 #### SCSS
 	@include sprite_make((
 		'num/*.png'
-	))
+	));
 
 #### css
 	.num.img1, .num.img2, .num.img3 {
