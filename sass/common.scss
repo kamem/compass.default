@@ -2,16 +2,15 @@
 
 @import "_extension_import.scss";
 
+body {
+	-webkit-text-size-adjust: none;
+}
+
 #header,
 main,
 #footer {
-	margin: 0 auto;
 	text-align: left;
-	width: $base-width + px;
 	position: relative;
-	background: #f1f1f1;
-	overflow: hidden;
-	@include box-shadow(2px 2px 3px rgba(0,0,0,0.15));
 }
 
 /*----------------------------------------
@@ -21,6 +20,8 @@ main,
 	h1 {
 		@include display-box-center();
 		padding: 3em;
+		background: #333;
+		color: #fff
 	}
 }
 
@@ -28,31 +29,241 @@ main,
 	content
 ----------------------------------------*/
 main {
-	h2 {
-		padding: 0.3em 20px;
-		padding: 0.3em es(20);
-		marign-bottom: 1em;
+	background-color: #f7f3e8;
+	position: relative;
+	z-index: 1;
+	
+	&.off {
+		display: block;
 	}
-	h3 {
-		margin: 0.3em 0;
-		padding: 0.3em 20px;
-		padding: 0.3em es(20);
-		background: #666;
+
+	h1 {
+		$font-size: 25;
+		$line-height: silver-ratio($font-size);
+		$padding: $line-height / 2;
+		$boder: 2;
+		$fix-height: $line-height + $padding * 2 + $boder;
+	
+		margin: 0 auto;
+		border-bottom: $boder + px solid #fff;
+		padding: es($padding) es($font-size);
+		@include fz($font-size);
+		line-height: es($line-height);
 		color: #fff;
+		text-align: center;
+		position: relative;
+		word-wrap: break-word;
+		
+		@include box-shadow(1px 1px 3px rgba(0,0,0,0.2));
 	}
+	
+	h2 {
+		$font-size: 24;
+		$line-height: silver-ratio($font-size);
+		$padding: (silver-ratio($font-size) - $font-size) / 2;
+		$boder: 2;
+		$fix-height: $line-height + $padding * 2 + $boder * 2;
+		
+		border-bottom: $boder + px solid #fff;
+		border-top: $boder + px solid #fff;
+		
+		margin: 0 auto;
+		margin-bottom: es(silver-ratio($fix-height) - $fix-height);
+		padding: es($padding) es(($base-width-big - $base-width) / 2);
+		line-height: es($line-height);
+		@include fz($font-size);
+
+		font-weight: normal;
+		color: #500;
+		max-width: es($base-width);
+	
+		background: #ffff;
+		 
+		@include text-shadow-repeat(1px 1px 2px #fff,5);
+		
+		@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+			padding-right: es(10);
+			padding-left: es(10);
+		}
+	}
+		
+	h3 {
+		$font-size: 22;
+		$line-height: silver-ratio($font-size);
+		$padding: (silver-ratio($font-size) - $font-size) / 2;
+		$boder: 3;
+		$fix-height: $line-height + $padding * 2 + $boder * 2;
+		
+		border-bottom: $boder + px solid #fff;
+		
+		margin: 0 auto;
+		margin-bottom: es(silver-ratio($fix-height) - $fix-height);
+		padding: es($padding) 0;
+		line-height: es($line-height);
+		@include fz($font-size);
+
+		color: #500;
+		max-width: es($base-width);
+
+		@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+			padding-right: es(10);
+			padding-left: es(10);
+		}
+	}
+	
 	h4 {
-		margin: 0.3em 0;
-		padding: 0.3em 20px;
-		padding: 0.3em es(20);
+		$font-size: 20;
+		$line-height: silver-ratio($font-size);
+		$padding: (silver-ratio($font-size) - $font-size) / 2;
+		$boder: 3;
+		$fix-height: $line-height + $padding * 2 + $boder * 2;
+		
+		margin: 0 auto;
+		margin-bottom: es(silver-ratio($fix-height) - $fix-height);
+		padding: es($padding) 0;
+		line-height: es($line-height);
+		@include fz($font-size);
+
+		color: #500;
+		max-width: es($base-width);
+
+		@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+			padding-right: es(10);
+			padding-left: es(10);
+		}
 	}
 	
+	h5 {
+		$font-size: 18;
+		$line-height: silver-ratio($font-size);
+		$padding: (silver-ratio($font-size) - $font-size) / 2;
+		$boder: 3;
+		$fix-height: $line-height + $padding * 2 + $boder * 2;
+		
+		margin: 0 auto;
+		margin-bottom: es(silver-ratio($fix-height) - $fix-height);
+		padding: es($padding) 0;
+		line-height: es($line-height);
+		@include fz($font-size);
+
+		color: #500;
+		max-width: es($base-width);
+
+		@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+			padding-right: es(10);
+			padding-left: es(10);
+		}
+	}
+
+	h6 {
+		$font-size: 18;
+		$line-height: silver-ratio($font-size);
+		$padding: (silver-ratio($font-size) - $font-size) / 2;
+		$boder: 3;
+		$fix-height: $line-height + $padding * 2 + $boder * 2;
+		
+		margin: 0 auto;
+		margin-bottom: es(silver-ratio($fix-height) - $fix-height);
+		padding: es($padding) 0;
+		line-height: es($line-height);
+		@include fz($font-size);
+
+		color: #500;
+		max-width: es($base-width);
+
+		@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+			padding-right: es(10);
+			padding-left: es(10);
+		}
+	}
+	
+@media screen and (max-width: es($mediaQuery-small,rem,$mediaQuery-baseSize)) {
+	position: static;
+}
+}
+
+.content {	
+	$font-size: 16;
+	$line-height: silver-ratio($font-size);
+	$em-width: 40;
+	$letter-spacing: 2.4;
+
+	img {
+		margin: 0 auto;
+		width: es($base-width);
+		height: auto;
+		display: block;
+		
+		@media screen and (max-width: 49.875em) {
+			width: 100% !important;
+		}
+	}
+	
+	figure,
+	p,
+	li,
+	dt,
+	dd {
+		margin: 0 auto;
+		line-height: es($line-height);
+		letter-spacing: es($letter-spacing);
+		color: #500;
+		@include fz($font-size);
+		
+		max-width: es($em-width * ($font-size + $letter-spacing));
+
+		dl,
+		ul,
+		ol,
+		figure,
+		p,
+		li,
+		dt,
+		dd {
+			margin: 0;
+			list-style-position: inside;
+		}
+	}
+	
+	dl,
+	ul,
+	ol {
+		margin: es(silver-ratio($font-size) + $font-size) 0;
+	}
+	
+	li {
+		margin-bottom: es(silver-ratio($font-size));
+	}
+
+	ul li {
+		list-style-type: disc;
+	}
+	
+	figure,
 	p {
-		margin: 1em 0;
+		margin: es(silver-ratio($font-size) + $font-size) auto;
+	}
+
+	figure {
+		img {
+			margin-bottom: es(19,16);
+		}
 	}
 	
-	section {
-		margin-bottom: 1em;
+	figcaption {
+		margin-top: es(silver-ratio($font-size) - $font-size);
 	}
+
+@media screen and (max-width: es($mediaQuery-middle,rem,$mediaQuery-baseSize)) {
+	figure,
+	p,
+	li,
+	dt,
+	dd {
+		margin-right: es(10);
+		margin-left: es(10);
+	}
+}
 }
 
 /*----------------------------------------
