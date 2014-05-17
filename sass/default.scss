@@ -29,9 +29,7 @@ html {font-size:es($font-sizeDefault,'%',$font-size);}
 }
 
 body {
-	line-height: 1.6;
 	text-align: center;
-	background-color: #fff;
 }
 
 @if $html5 {
@@ -51,11 +49,8 @@ footer,header,hgroup,menu,nav,section {
 p,
 pre,
 address {
-	color: $textColor;
+	color: $text-color;
 	@include fz(16);
-}
-
-h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
@@ -190,7 +185,7 @@ acronym {
 ul,
 ol,
 dl {
-	color: $textColor;
+	color: $text-color;
 }
 
 li,
