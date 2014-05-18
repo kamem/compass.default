@@ -246,7 +246,7 @@ $imgHeight: ();
 // $position: 三角形をボックスのどの位置にセットするか（真ん中の場合50%）
 // $selecter: after or before どちらを使うか
 $size: '';
-@mixin triangle-set($num: 10px,$color: black,$dir: right,$position: 50%,$selecter: after) {
+@mixin triangle-set($num: 10px,$color: black,$dir: top,$position: 50%,$selecter: after) {
 	$size: (nth($num,1) / 2);
 	$h: '';
 	@if length($num) == 1 {
@@ -300,7 +300,7 @@ $size: '';
 // $dir: 向き（top,right,bottom,left）
 // $position: 矢印をボックスのどの位置にセットするか（真ん中の場合50%）
 // $selecter: after or before どちらを使うか
-@mixin arrow-set($num: 10px,$bold: 1px,$color: white,$dir: top,$position: 50%,$selecter: after) {
+@mixin arrow-set($num: 10px,$bold: 1px,$color: white,$dir: right,$position: 50%,$selecter: after) {
 	&#{':' + $selecter} {
 		@include arrow($num,$bold,$color,$dir);
 		position: absolute;
@@ -316,7 +316,7 @@ $size: '';
 // $bold: 太さ
 // $color: 色
 // $dir: 向き（top,right,bottom,left）
-@mixin arrow($num: 10px,$bold: 1px,$color: white,$dir: top) {
+@mixin arrow($num: 10px,$bold: 1px,$color: white,$dir: right) {
 	$size: $num;
 	$ary: if($dir == top, (top right),if($dir == right, (right bottom),if($dir == bottom, (bottom left),if($dir == left, (top left),''))));
 	content: '';

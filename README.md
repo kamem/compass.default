@@ -287,15 +287,15 @@ CSSで背景に画像を入れる時に毎回サイズを入れる作業を省�
 	text-shadow: 0 0 3px black,0 0 3px black,0 0 3px black,0 0 3px black,0 0 3px black;
 
 ### box-shadow-repeat
-同じテキストシャドウを繰り返したい場合
+同じボックスシャドウを繰り返したい場合
 #### SCSS
 	@include box-shadow-repeat(0 0 10px #fff,10);
 #### CSS
 	box-shadow: 0 0 10px black,0 0 10px black,0 0 10px black,0 0 10px black,0 0 10px black;
 
 ### display-box-center
-display: box;にし縦横をcenter寄せにする。
-webkitに対応したサイトを作る際に役立ちます。
+display: box;にし中身を縦横のcenter寄せにする。
+dwebkitに対応したサイトを作る際に役立ちます。
 
 #### SCSS
 	@include display-box-center();
@@ -336,7 +336,7 @@ webkitに対応したサイトを作る際に役立ちます。
 		10px, // 大きさ
 		1px, // 太さ
 		white, // 色
-		top, // 向き: top,right,bottom,left
+		right, // 向き: top,right,bottom,left
 	);
 
 ### arrow-set
@@ -346,7 +346,7 @@ webkitに対応したサイトを作る際に役立ちます。
 		10px, // 大きさ
 		1px, // 太さ
 		white, // 色
-		top, // 向き: top,right,bottom,left
+		right, // 向き: top,right,bottom,left
 		50%, // 位置: 三角形をボックスのどの位置にセットするか（真ん中の場合50%）
 		after // before or after どちらを使うか
 	);
