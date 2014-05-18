@@ -380,11 +380,10 @@ dwebkitに対応したサイトを作る際に役立ちます。
 #### SCSS
 例）16pxのサイズのspanを12pxの%に変換したい場合
 
-	font-size: es(12,'%',16);
-	//または
+	@include fz(12,'','%',16);
 	$font-unit: '%';
 	$font-sizeDefault: 16;
-	font-size: es(12);
+	@include fz(12);
 #### CSS
 	font-size: 75%;
 

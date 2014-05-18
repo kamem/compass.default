@@ -395,7 +395,7 @@ $size: '';
     @if($unit == rem) {
  	   font-size: if($important != '',append($size * 1px,$important),$size * 1px);
     }
-    font-size: if($important != '',append(#{$num}$unit,$important),#{$num}$unit);
+    font-size: if($important != '',append(#{$num}$unit,$important),#{$num}#{$unit});
 }
 
 // em-width
