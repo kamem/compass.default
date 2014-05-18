@@ -381,6 +381,7 @@ dwebkitに対応したサイトを作る際に役立ちます。
 例）16pxのサイズのspanを12pxの%に変換したい場合
 
 	@include fz(12,'','%',16);
+	//または
 	$font-unit: '%';
 	$font-sizeDefault: 16;
 	@include fz(12);
