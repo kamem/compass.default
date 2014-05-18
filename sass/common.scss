@@ -10,7 +10,8 @@ body {
 main,
 #footer {
 	text-align: left;
-	position: relative;
+	margin: 0 auto;
+	max-width: es($base-width);
 }
 
 /*----------------------------------------
@@ -29,15 +30,27 @@ main,
 	content
 ----------------------------------------*/
 main {
+	h2 {
+		padding: 0.5em 1em;
+		border-bottom: 3px solid #333;
+	}
+	
+	h3 {
+		padding: 0.5em 1em;
+		margin: 0.3em 0;
+		background-color: #000;
+		color: #fff;
+	}
+
+	section {
+		margin-bottom: 2em;
+	}
 }
 
 /*----------------------------------------
 	footer
 ----------------------------------------*/
 #footer {
-	p {
-		padding: 0.5em;
-	}
 }
 
 
