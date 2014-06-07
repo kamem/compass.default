@@ -1,7 +1,7 @@
 @charset "utf-8";
 .num.img1, .num.img2, .num.img3, .num.img4, .num.img5 {
   display: block;
-  background-image: url('/img/num-sce8bc88143.png');
+  background-image: url('../img/num-sce8bc88143.png');
   background-repeat: no-repeat;
   -webkit-background-size: 50px 270px;
   -moz-background-size: 50px 270px;

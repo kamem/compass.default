@@ -36,7 +36,7 @@
 #background-4corners p:after, #background-4corners p:before {
   content: '';
   display: block;
-  background: url('/img/flower.png?1396156913') 0 0 no-repeat;
+  background: url('../img/flower.png?1396156913') 0 0 no-repeat;
   background-size: 100px 61px;
   width: 50%;
   height: 61px;
@@ -68,7 +68,7 @@
 }
 
 #sprite-info p {
-  background-image: url('/img/num-sce8bc88143.png');
+  background-image: url('../img/num-sce8bc88143.png');
   -webkit-background-size: 50px 270px;
   -moz-background-size: 50px 270px;
   -o-background-size: 50px 270px;
