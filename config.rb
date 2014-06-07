@@ -2,7 +2,8 @@ require "./rb/skyward_design.rb"
 require "./rb/develo.rb"
 
 http_path = "/"
-css_dir = "html/css/"
+css_dir = "css/"
 sass_dir = "sass"
-images_dir = "html/img/"
-javascripts_dir = "hmtl/js/"
+images_dir = "img/"
+javascripts_dir = "js/"
+relative_assets = false
