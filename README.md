@@ -367,6 +367,19 @@ dwebkitに対応したサイトを作る際に役立ちます。
 
 [background-4corners]: http://develo.org/2014/05/11/2100.html
 
+
+### background-stripe
+ストライプ背景の生成
+
+	@include background-stripe(
+		10, //1つ目のトライプのサイズ
+		transparent,	//1つ目のストライプの色
+		10, //2つ目のストライプのサイズ
+		rgba(255,255,255,0.5), //2つ目のストライプの色
+		-45deg //ストライプの角度（45度単位)
+	);
+
+
 ### es
 基準となるサイズに対する値を、さまざまな単位にエンコード（encode size）
 
