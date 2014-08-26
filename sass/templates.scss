@@ -35,7 +35,7 @@
 		line-height: es(silver-ratio(16));
 		letter-spacing: es($letter-spacing);
 		color: #500;
-		
+
 		@include em-width($em-width,$letter-spacing);
 	}
 }
@@ -45,14 +45,14 @@
 	p {
 		@include sprite-info($map,img3);
 	}
-	
+
 	li {
 		@include inline-block;
 	}
-	
+
 	//フォルダ内のファイルリストを取得（falseでファイル名のみ）
 	$file: fileList($images_dir + 'num/*',false);
-	
+
 	@for $i from 1 through length($file) {
 		li:nth-child(#{$i}) {
 			@include sprite-info($map,'img' + $i);
@@ -125,4 +125,10 @@
 		@include text-shadow-repeat(0 0 3px #000,5);
 		@include box-shadow-repeat(0 0 10px #000,5);
 	}
+}
+
+#background-stripe {
+	@include background-stripe(10,transparent,10,rgba(255,255,255,0.5),-45deg);
+	background-color: #39c;
+	height: 150px;
 }

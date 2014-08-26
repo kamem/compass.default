@@ -29,11 +29,11 @@ $imgHeight: ();
 	@each $i in $img {
 		$isFile: isFile($images_dir + $i) == 'true';
 		$num: $num + 1;
-		
+
 		$width: '';
 		$height: '';
 		$image: '';
-		
+
 		@if $isFile {
 			$width: round(image-width($i) / $retinaSuport);
 			$height: round(image-height($i) / $retinaSuport);
@@ -47,17 +47,17 @@ $imgHeight: ();
 			$height: auto;
 			$image: $i;
 		}
-		
+
 		$val: if(length($img) == $num and $important != '',append(unquote(nth($value,$num)),$important),unquote(nth($value,$num)));
 		$whval: if(length($img) == $num and $important != '',append(join($width,$height),$important),join($width,$height));
-		
+
 		$imgList: append($imgList, join($image,$val),comma);
 		$widthHeightList: append($widthHeightList, $whval,comma);
-		
+
 		$imgWidth: if(length($img) == 1,$width,append($imgWidth, $width));
 		$imgHeight:  if(length($img) == 1,$height,append($imgHeight, $height));
 	}
-	
+
 	@include background($imgList);
 	@if $widthFixed and length($img) < 2 {
 		text-indent: -9999px;
@@ -83,11 +83,11 @@ $imgHeight: ();
 	@each $i in $img {
 		$width: image-width($i) / $retinaSuport;
 		$height: image-height($i) / $retinaSuport;
-		
+
 		$imgWidth: append($imgWidth, $width);
 		$imgHeight:  append($imgHeight, $height);
 	}
-	
+
 	@return if($name == 'width',$imgWidth,$imgHeight)
 }
 
@@ -100,10 +100,10 @@ $imgHeight: ();
 	$imgWidth: ();
 	@each $i in $img {
 		$width: round(image-width($i) / 2);
-		
+
 		$imgWidth: if(length($img) == 1,$width,append($imgWidth, $width));
 	}
-	
+
 	@return $imgWidth
 }
 
@@ -115,10 +115,10 @@ $imgHeight: ();
 	$imgHeight: ();
 	@each $i in $img {
 		$height: round(image-height($i) / 2);
-		
+
 		$imgHeight:  if(length($img) == 1,$height,append($imgHeight, $height));
 	}
-	
+
 	@return $imgHeight
 }
 
@@ -136,8 +136,8 @@ $imgHeight: ();
 	background-image: image-url(sprite-path($map), false, false);
 	@include background-size(nth(spriteSize($map,$name,$retina),1) nth(spriteSize($map,$name,$retina),2));
 	background-position: spritePosition($map,$name,$retina);
-	
-	@if($size) {		
+
+	@if($size) {
 		width: nth(spriteSize($map,$name,$retina),3);
 		height: nth(spriteSize($map,$name,$retina),4);
 	}
@@ -160,7 +160,7 @@ $imgHeight: ();
 	$ypos: round(nth(sprite-position($map, $name), 2) / $retinaSuport);
 	$imgWidth: round(image-width(sprite-file($map, $name)) / $retinaSuport);
 	$imgHeight: round(image-height(sprite-file($map, $name)) / $retinaSuport);
-	
+
 	@return ($spriteWidth,$spriteHeight,$imgWidth,$imgHeight);
 }
 
@@ -177,7 +177,7 @@ $imgHeight: ();
 
 	$xpos: round(nth(sprite-position($map, $name), 1) / $retinaSuport);
 	$ypos: round(nth(sprite-position($map, $name), 2) / $retinaSuport);
-	
+
 	@return $xpos $ypos;
 }
 
@@ -350,17 +350,38 @@ $size: '';
 		position: absolute;
 		-webkit-box-reflect: right;
 	}
-	
+
 	&:before {
 		top: 0;
 		left: 0;
 	}
-	
+
 	&:after {
     	right: 0;
     	bottom: 0;
 		@include rotate(-180deg);
 	}
+}
+
+//	background-stripe
+//
+//	$size: stripeの背景サイズ
+//	$color: stripeの背景色
+//	$deg: 角度 45度単位でのみ可能
+@mixin background-stripe($size1: 10,$color1: transparent,$size2: 10,$color2: #000,$deg:'',$important: '') {
+	$imageWidth: ($size1 + $size2) * 2;
+	$color1Percent: $size1 / $imageWidth * 100%;
+	$color2Percent: $size2 / $imageWidth * 100%;
+
+	@include background-image(linear-gradient(
+		unquote(if($deg != '',$deg,left)),
+		$color1 $color1Percent,
+		$color2 $color1Percent, $color2 $color1Percent + $color2Percent,
+		$color1 $color1Percent + $color2Percent, $color1 $color1Percent * 2 + $color2Percent,
+		$color2 $color1Percent * 2 + $color2Percent, $color2
+	) unquote($important));
+
+	background-size: $imageWidth * 1px $imageWidth * 1px unquote($important);
 }
 
 //----------------------------------------------------------------------
@@ -460,7 +481,7 @@ $size: '';
 			visibility: hidden;
 		}
 	}
-	
+
 	@each $selecter in $selecters {
 		#{$selecter} {
 			@extend %clearfix;
