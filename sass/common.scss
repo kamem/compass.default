@@ -19,7 +19,6 @@ main,
 ----------------------------------------*/
 #header {
 	h1 {
-		@include display-box-center();
 		padding: 3em;
 		background: #333;
 		color: #fff
@@ -34,7 +33,7 @@ main {
 		padding: 0.5em 1em;
 		border-bottom: 3px solid #333;
 	}
-	
+
 	h3 {
 		padding: 0.5em 1em;
 		margin: 0.3em 0;
