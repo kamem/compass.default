@@ -369,7 +369,7 @@ $size: '';
 	$color2Percent: $size2 / $imageWidth * 100%;
 
 	@include background-image(linear-gradient(
-		unquote(if($deg != '',$deg,left)),
+		if($deg != '',$deg,left),
 		$color1 $color1Percent,
 		$color2 $color1Percent, $color2 $color1Percent + $color2Percent,
 		$color1 $color1Percent + $color2Percent, $color1 $color1Percent * 2 + $color2Percent,
